@@ -5,8 +5,10 @@ Curso: Plataformas para el Desarrollo de Aplicaciones — Semestre 2026-II.
 
 ## 🌐 URLs en vivo
 
-- Frontend (Vercel): _pega aquí tu URL_
-- API (Render): _pega aquí tu URL_ (`/api/tareas`)
+- Frontend (Vercel): https://tareas-app-seven.vercel.app
+- API (Render): https://tareas-app-uz9y.onrender.com/api/tareas
+
+> La API está en el plan gratuito de Render: tras 15 minutos sin uso se "duerme" y la primera petición puede tardar cerca de 1 minuto.
 
 ## Ejecutar en local (dos terminales)
 
@@ -46,6 +48,34 @@ Curso: Plataformas para el Desarrollo de Aplicaciones — Semestre 2026-II.
 | CLIENTE_URL   | Render       | URL del frontend (restringe CORS)               |
 | MONGODB_URI   | Render/local | Cadena de conexión de MongoDB (solo Reto 4)     |
 
+## Despliegue
+
+| Parte    | Plataforma | Configuración                                                    |
+|----------|------------|------------------------------------------------------------------|
+| Backend  | Render     | Root Directory `server`, Build `npm install`, Start `node index.js`, plan Free |
+| Frontend | Vercel     | Root Directory `client`, Build `npm run build`, Output `dist`    |
+
+Ambos se redespliegan automáticamente con cada `git push` a la rama `main`.
+CORS está restringido: la variable `CLIENTE_URL` de Render contiene solo la URL del frontend en Vercel.
+
 ## Capturas
 
-_Agrega aquí capturas del panel de Render, del panel de Vercel y de la app con datos._
+### App en vivo (Vercel)
+![App en vivo con datos](capturas/app-en-vivo-vercel.png)
+
+### Frontend en Vercel
+![Deploy en Vercel](capturas/vercel-deploy-ready.png)
+![Variable VITE_API_URL](capturas/vercel-variable-entorno.png)
+
+### Backend en Render
+![Servicio Live](capturas/render-servicio-live.png)
+![Configuración de build](capturas/render-config-build.png)
+![Configuración de deploy](capturas/render-config-deploy.png)
+![Log del deploy](capturas/render-deploy-log.png)
+![CORS restringido con CLIENTE_URL](capturas/render-cors-cliente-url.png)
+
+### API respondiendo en la nube
+![GET /api/tareas](capturas/api-render-en-vivo.png)
+
+### Desarrollo local
+![Backend y frontend en local](capturas/local-backend-y-frontend.png)
